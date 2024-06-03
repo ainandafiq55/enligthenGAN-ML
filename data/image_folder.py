@@ -8,6 +8,7 @@
 import torch.utils.data as data
 
 from PIL import Image
+from PIL import ImageFile
 import os
 import os.path
 
@@ -42,6 +43,7 @@ def store_dataset(dir):
         for fname in fnames:
             if is_image_file(fname):
                 path = os.path.join(root, fname)
+                ImageFile.LOAD_TRUNCATED_IMAGES = True
                 img = Image.open(path).convert('RGB')
                 images.append(img)
                 all_path.append(path)
@@ -50,6 +52,7 @@ def store_dataset(dir):
 
 
 def default_loader(path):
+    ImageFile.LOAD_TRUNCATED_IMAGES = True
     return Image.open(path).convert('RGB')
 
 

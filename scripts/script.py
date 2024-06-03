@@ -53,4 +53,4 @@ elif opt.predict:
                 --self_attention \
                 --times_residual \
 	        	--instance_norm 0 --resize_or_crop='no'\
-	        	--which_epoch " + str(200 - i*5))
+	        	--which_epoch " + str(10 - i*5))

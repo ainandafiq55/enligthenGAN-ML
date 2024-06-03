@@ -61,4 +61,4 @@ elif opt.predict:
 	        	--use_norm 1 \
 	        	--use_wgan 0 \
 	        	--instance_norm 0 --resize_or_crop='no'\
-	        	--which_epoch " + str(200 - i*10))
+	        	--which_epoch " + str(10 - i*10))

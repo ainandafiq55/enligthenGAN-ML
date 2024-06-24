@@ -40,7 +40,7 @@ if opt.train:
 elif opt.predict:
 	for i in range(1):
 	        os.system("python predict.py \
-	        	--dataroot D:/Media/Dataset/dark_test_data \
+	        	--dataroot D:/Media/Dataset/lol_dataset-enlightgan/eval15/low/ \
 	        	--name enlightening \
 	        	--model single \
 	        	--which_direction AtoB \
@@ -53,4 +53,4 @@ elif opt.predict:
                 --self_attention \
                 --times_residual \
 	        	--instance_norm 0 --resize_or_crop='no'\
-	        	--which_epoch " + str(10 - i*5))
+	        	--which_epoch " + str(200 - i*5))

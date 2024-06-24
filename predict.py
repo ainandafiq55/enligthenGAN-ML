@@ -22,11 +22,19 @@ web_dir = os.path.join("./ablation/", opt.name, '%s_%s' % (opt.phase, opt.which_
 webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.which_epoch))
 # test
 print(len(dataset))
+total_time = 0
 for i, data in enumerate(dataset):
+    start_time = time.time()
+    
     model.set_input(data)
     visuals = model.predict()
+    
+    end_time = (time.time() - start_time)*1000
+    total_time += end_time
+    
     img_path = model.get_image_paths()
-    print('process image... %s' % img_path)
+    print('process image... %s, %d ms' % (img_path,end_time))
     visualizer.save_images(webpage, visuals, img_path)
-
+average_time = total_time/len(dataset)
+print('All Done, average process time : %d ms' % average_time)
 webpage.save()
